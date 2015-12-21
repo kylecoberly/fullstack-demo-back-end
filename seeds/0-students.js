@@ -1,4 +1,3 @@
-
 exports.seed = function(knex, Promise) {
     return knex("student").del().then(function(){
         return Promise.all([
