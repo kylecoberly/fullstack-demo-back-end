@@ -1,14 +1,11 @@
+require('dotenv').load();
+
 var express = require("express");
 var router = express.Router();
 
 var knex = require("knex")({
     client: "pg",
-    connection: {
-        host     : "127.0.0.1",
-        user     : "regly_app",
-        password : "regly_password",
-        database : "regly"
-    }
+    connection: process.env.DATABASE_URL
 });
 
 router.get("/", function(request, response){
