@@ -1,30 +1,17 @@
 var express = require("express");
 var cors = require("cors");
-var knex = require("knex")({
-    client: "pg",
-    connection: {
-        host     : "127.0.0.1",
-        user     : "regly_app",
-        password : "regly_password",
-        database : "regly"
-    }
-});
+var bodyParser = require("body-parser");
+
+var studentsRoute = require("./routes/students");
 
 var app = express();
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
-app.get("/students", function(request, response){
-    knex("student").select().then(function(students){
-        response.send({students: students});
-    });
-});
-app.get("/students/:id", function(request, response){
-    knex("student").select()
-        .where("id", request.params.id)
-        .then(function(students){
-        response.send({students: students});
-    });
-});
+app.use("/students", studentsRoute);
 
 app.listen(8000, function(){
     console.log("Running on port 8000");
