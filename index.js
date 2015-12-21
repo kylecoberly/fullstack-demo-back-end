@@ -13,6 +13,6 @@ app.use(bodyParser.urlencoded({
 
 app.use("/students", studentsRoute);
 
-app.listen(8000, function(){
-    console.log("Running on port 8000");
+app.listen(process.env.PORT, function(){
+    console.log("Running on port ", process.env.PORT);
 });
