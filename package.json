@@ -1,0 +1,19 @@
+{
+  "name": "back-end-student-fullstack",
+  "version": "0.0.1",
+  "description": "Demo of Regly API",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "test",
+    "demo"
+  ],
+  "author": "Kyle Coberly and G15",
+  "license": "ISC"
+}
